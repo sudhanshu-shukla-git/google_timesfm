@@ -295,19 +295,19 @@ class TimesFM_2p5_200M_torch(timesfm_2p5_base.TimesFM_2p5, ModelHubMixin):
       model_file_path = os.path.join(model_id, "model.safetensors")
       if not os.path.exists(model_file_path):
         raise FileNotFoundError(f"model.safetensors not found in directory {model_id}")
-    else:
-      logging.info("Downloading checkpoint from Hugging Face repo %s", model_id)
-      model_file_path = hf_hub_download(
-        repo_id=model_id,
-        filename="model.safetensors",
-        revision=revision,
-        cache_dir=cache_dir,
-        force_download=force_download,
-        proxies=proxies,
-        resume_download=resume_download,
-        token=token,
-        local_files_only=local_files_only,
-      )
+    # else:
+    #   logging.info("Downloading checkpoint from Hugging Face repo %s", model_id)
+    #   model_file_path = hf_hub_download(
+    #     repo_id=model_id,
+    #     filename="model.safetensors",
+    #     revision=revision,
+    #     cache_dir=cache_dir,
+    #     force_download=force_download,
+    #     proxies=proxies,
+    #     resume_download=resume_download,
+    #     token=token,
+    #     local_files_only=local_files_only,
+    #   )
 
     logging.info("Loading checkpoint from: %s", model_file_path)
     # Load the weights into the model.
